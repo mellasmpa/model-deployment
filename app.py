@@ -31,13 +31,13 @@ if uploaded_file is not None:
         "Enter the number of rows to display", min_value=0, max_value=30, value=5
     )
     # Show the top 5 row of the dataframe
-    st.header("Data Sample")
+    st.subheader("Data Sample")
     st.dataframe(data.head(num_rows))
 
 
 # create a function to plot categorical variables
 def plot_num(data, num_var):
-    st.header("Plots of " + num_var)
+    st.subheader("Plots of " + num_var)
 
     fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(12, 5))
 
@@ -78,7 +78,7 @@ if uploaded_file:
     )
 
     # show the top 3 our updated dataframe
-    st.header("Clean and encode output variable")
+    st.subheader("Clean and encode output variable")
     st.dataframe(df_model.head(3))
 
     # Create our target and features
@@ -99,7 +99,7 @@ if uploaded_file:
     y_pred = model.predict(X_test)
 
     # Print the classification report
-    st.header("Classification Report")
+    st.subheader("Classification Report")
     class_report = classification_report(y_test, y_pred)
     st.text(class_report)
 
